@@ -54,7 +54,7 @@ block content
                 td.tlefttext(style='width:25%;vertical-align: top;') 
                   b Dose
                 td.ttext(style='width:75%')
-                  -each item,roa in drug.formatted_dose
+                  each item,roa in drug.formatted_dose
                     table
                       tr
                         td(width="30%",style="margin-right:30px;")
@@ -65,7 +65,7 @@ block content
                                     th(colspan='2') 
                                   -else
                                     th(colspan='2') #{roa}
-                              -each i,t in item
+                              each i,t in item
                                 tr 
                                  td(style='width:20%') #{t}
                                  td #{i}
@@ -83,7 +83,7 @@ block content
                 td.ttext(style='width:75%')
                   ul
                   -if(drug.properties.pweffects)
-                    -each i,y in drug.properties.pweffects
+                    each i,y in drug.properties.pweffects
                      a(href=i) 
                       button.btn.btn-default(style="padding:5px;margin:5px;") #{y}
                     p Effects lovingly provided by 
@@ -116,7 +116,7 @@ block content
                                   td(style='width:20%') After-effects
                                   td #{drug.formatted_aftereffects.value} #{drug.formatted_aftereffects._unit}
                         - else
-                          -each item,roa in drug.formatted_duration
+                          each item,roa in drug.formatted_duration
                             -if(roa != '_unit' && roa != 'value')
                               table.table
                                 thead
@@ -172,7 +172,7 @@ block content
                   - if (typeof(property) === 'string'){
                     | !{property}
                   -} else {
-                    -each line in property
+                    each line in property
                       | #{line}
                       br
                   -}
@@ -185,7 +185,7 @@ block content
         .bs-callout.bs-callout-danger
           h3 Dangerous
           ul
-            -each d in interactions.dangerous
+            each d in interactions.dangerous
               li
                 if d.wiki
                   a(href=d.wiki) #{d.pname}
@@ -201,7 +201,7 @@ block content
         .bs-callout.bs-callout-ss
           h3 Serotonin Syndrome
           ul
-            -each d in interactions.ss
+            each d in interactions.ss
               li
                 if d.wiki
                   a(href=d.wiki) #{d.pname}
@@ -217,7 +217,7 @@ block content
         .bs-callout.bs-callout-unsafe
           h3 Unsafe
           ul
-            -each d in interactions.unsafe
+            each d in interactions.unsafe
               li
                 if d.wiki
                   a(href=d.wiki) #{d.pname}
@@ -233,7 +233,7 @@ block content
         .bs-callout.bs-callout-caution
           h3 Caution
           ul
-            -each d in interactions.caution
+            each d in interactions.caution
               li
                 if d.wiki
                   a(href=d.wiki) #{d.pname}
@@ -249,7 +249,7 @@ block content
         .bs-callout.bs-callout-lowinc
           h3 Low risk & Increased Effects
           ul
-            -each d in interactions.lowinc
+            each d in interactions.lowinc
               li
                 if d.wiki
                   a(href=d.wiki) #{d.pname}
@@ -265,7 +265,7 @@ block content
         .bs-callout.bs-callout-lowdec
           h3 Low risk & Decreased Effects
           ul
-            -each d in interactions.lowdec
+            each d in interactions.lowdec
               li
                 if d.wiki
                   a(href=d.wiki) #{d.pname}
@@ -281,7 +281,7 @@ block content
         .bs-callout.bs-callout-default
           h3 Low risk & No Synergy
           ul
-            -each d in interactions.lowno
+            each d in interactions.lowno
               li
                 if d.wiki
                   a(href=d.wiki) #{d.pname}
@@ -299,11 +299,11 @@ block content
 
     -if(drug.sources)
       h2.sub-header#references References & Notes
-      -each p,i in drug.sources
+      each p,i in drug.sources
         - i = i.replace('_', '');
         - i = i.charAt(0).toUpperCase() + i.slice(1)
         h3.sub-header #{i}
         ul
-          -each r in p
+          each r in p
             li !{r}
 

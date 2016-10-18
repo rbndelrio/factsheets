@@ -23,7 +23,7 @@ block content
                 th.theader(style='width: 70%;')
                   | Summary
           tbody.tbody1
-            -each drug in brokenDose
+            each drug in brokenDose
               tr
                 td.ttext(style='width: 30%;') 
                   a.boxed2(href='/factsheet/'+drug.name) 
@@ -71,7 +71,7 @@ block content
                 th.theader(style='width: 70%;')
                   | Summary
           tbody.tbody1
-            -each drug in brokenOnset
+            each drug in brokenOnset
               tr
                 td.ttext(style='width: 30%;') 
                   a.boxed2(href='/factsheet/'+drug.name) 
@@ -118,7 +118,7 @@ block content
                 th.theader(style='width: 70%;')
                   | Summary
           tbody.tbody1
-            -each drug in brokenDuration
+            each drug in brokenDuration
               tr
                 td.ttext(style='width: 30%;') 
                   a.boxed2(href='/factsheet/'+drug.name) 
@@ -165,7 +165,7 @@ block content
                 th.theader(style='width: 70%;')
                   | Summary
           tbody.tbody1
-            -each drug in brokenAfter
+            each drug in brokenAfter
               tr
                 td.ttext(style='width: 30%;') 
                   a.boxed2(href='/factsheet/'+drug.name) 

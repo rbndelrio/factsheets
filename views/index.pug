@@ -3,16 +3,14 @@ extends layout
 block content
   .container-fluid(style="margin-top:2%;")
     .jumbotron
-      .bs-callout.catcallout(class='bs-callout-#{category.name}')
-        - if(!category.pretty_name) category.pretty_name = category.name.charAt(0).toUpperCase() + category.name.slice(1);
-        h4
-          a(href='/category/#{category.name}') #{category.pretty_name}
-        span(style='font:14px;') #{category.description}
-        br
-        br
-        - if(category.wiki)
-        a(href='#{category.wiki}') Read more on TripSit Wiki...
-      table.table.table-striped(data-toggle="table",data-url="x",data-search="true")
+      .bs-callout.bs-callout-ss
+        p(style='font:14px;') Welcome to TripSit Factsheets Beta.
+        span(style='font:14px;') Click on drugs, categories. Mouseover technical terms. Send us 
+          a(href='http://tripsit.me/contact-us') feedback
+          span .
+
+      .table-responsive
+        table.table.table-striped(data-toggle="table",data-search="true")
           thead
               tr
                 th.theader(style='width: 30%;')
@@ -22,7 +20,7 @@ block content
                 th.theader(style='width: 70%;')
                   | Summary
           tbody.tbody1
-            -each drug in drugs
+            each drug in drugs
               tr
                 td.ttext(style='width: 30%;') 
                   a.boxed2(href='/'+drug.name) 
@@ -56,6 +54,4 @@ block content
                     span.label.label-default(href='/category/'+kw style='float:right;padding:3px;margin:5px;' data-placement="right") other
                 td.ttext(style='width: 70%;')
                   | !{drug.properties.summary}
-       p
-       p
-       b Factsheets on #{drugs.length} drugs
+        b Factsheets on #{drugs.length} drugs
