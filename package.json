@@ -3,19 +3,19 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "./bin/www"
   },
   "dependencies": {
-    "express": "~4.9.0",
-    "body-parser": "~1.8.1",
-    "cookie-parser": "~1.3.3",
-    "morgan": "~1.3.0",
-    "serve-favicon": "~2.1.3",
-    "debug": "~2.0.0",
-    "jade": "~1.6.0",
-    "underscore": "latest",
-    "request": "latest",
+    "body-parser": "~1.15.2",
     "compression": "latest",
-    "express-minify": "latest"
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.14.0",
+    "express-minify": "latest",
+    "morgan": "~1.7.0",
+    "pug": "2.0.0-beta6",
+    "request": "latest",
+    "serve-favicon": "~2.3.0",
+    "underscore": "latest"
   }
 }

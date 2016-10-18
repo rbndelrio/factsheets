@@ -1,8 +1,7 @@
 window.onload = function () {
-  $('[data-toggle="tooltip"]').tooltip();
-  $('.fixed-table-loading').hide();
+  if (typeof drug === 'object') {
 
-  if(drug && drug.formatted_dose) {
+  if(drug.formatted_dose) {
     $.each(drug.formatted_dose, function(roa, levels) {
       var dataPoints = [];
 
@@ -72,7 +71,7 @@ window.onload = function () {
     });
   }
   
-  if(drug && drug.formatted_duration || drug.formatted_onset || drug.formatted_aftereffects) {
+  if(drug.formatted_duration || drug.formatted_onset || drug.formatted_aftereffects) {
     var data = [];
     if(drug.formatted_duration.value && drug.formatted_onset.value && drug.formatted_aftereffects.value) {
       var onset = parseInt(drug.formatted_onset.value);
@@ -234,15 +233,30 @@ window.onload = function () {
       });
       chart.render();
   }
-  
-var bt = $('.sidebar').position().top;
 
-$(window).scroll(function() {
-    var wst = $(window).scrollTop();
+  }
 
-    (wst >= bt) ?
-    $('.sidebar').css({position: 'fixed', top: 15+'px' }) :  
-    $('.sidebar').css({position: 'absolute', top: bt+'px' })
-});
 
+  $(function() {
+
+    $('[data-toggle="tooltip"]').tooltip();
+    $('.fixed-table-loading').hide();
+
+    var $sidebar = $('.sidebar');
+    var bt = ($sidebar.length)? $sidebar.position().top: false;
+
+    $(window).scroll(function() {
+        var wst = $(window).scrollTop();
+
+        if ($sidebar.length) {
+
+          if (wst >= bt) {
+            $sidebar.css({position: 'fixed', top: '0px' });
+          } else {
+            $sidebar.css({position: 'static'});
+            bt = $sidebar.position().top;
+          }
+        }
+    });
+  });
 };
