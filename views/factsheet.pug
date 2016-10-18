@@ -18,7 +18,7 @@ block content
               a(href='#interact') Interactions
           if(drug.sources)
             li
-              a(href='#references') References & Notes
+              a(href='#references') References &amp; Notes
           if wiki
             li
               a(href=wiki) Read more on TripSit Wiki
@@ -102,16 +102,16 @@ block content
                             thead
                               tr
                                 th(colspan='2') All ROAs
-                             tbody
-                               -if(drug.formatted_onset)
+                            tbody
+                              -if(drug.formatted_onset)
                                  tr 
                                   td(style='width:20%') Onset
                                   td #{drug.formatted_onset.value} #{drug.formatted_onset._unit}
-                               -if(drug.formatted_duration)
+                              -if(drug.formatted_duration)
                                  tr
                                   td(style='width:20%') Duration
                                   td #{drug.formatted_duration.value} #{drug.formatted_duration._unit}
-                               -if(drug.formatted_aftereffects)
+                              -if(drug.formatted_aftereffects)
                                  tr
                                   td(style='width:20%') After-effects
                                   td #{drug.formatted_aftereffects.value} #{drug.formatted_aftereffects._unit}
@@ -122,21 +122,21 @@ block content
                                 thead
                                   tr
                                     th(colspan='2') #{roa}
-                                 if(drug.formatted_onset)
+                                -if(drug.formatted_onset)
                                    tr 
                                     td(style='width:20%') Onset
                                     if(drug.formatted_onset[roa])
                                       td #{drug.formatted_onset[roa]} #{drug.formatted_onset._unit}
                                     else 
                                       td #{drug.formatted_onset.value} #{drug.formatted_onset._unit}
-                                 if(drug.formatted_duration)
+                                -if(drug.formatted_duration)
                                    tr
                                     td(style='width:20%') Duration
                                     if(drug.formatted_duration[roa])
                                       td #{drug.formatted_duration[roa]} #{drug.formatted_duration._unit}
                                     else 
                                       td #{drug.formatted_duration.value} #{drug.formatted_duration._unit}
-                                 if(drug.formatted_aftereffects)
+                                -if(drug.formatted_aftereffects)
                                    tr
                                     td(style='width:20%') After-effects
                                     if(drug.formatted_aftereffects[roa])
@@ -155,10 +155,10 @@ block content
                   -if(drug.properties.summary)
                     p !{drug.properties.summary}
                   -if(drug.properties.categories)
-                    - each i in drug.properties.categories
+                    each i in drug.properties.categories
                       - var category = categories[i]
                       - if(!category.pretty_name) category.pretty_name = category.name.charAt(0).toUpperCase() + category.name.slice(1);
-                      .bs-callout(class='bs-callout-#{category.name}')
+                      .bs-callout(class='bs-callout-' + category.name)
                         h4
                           a(href='/category/#{category.name}') #{category.pretty_name}
                         p #{category.description}
@@ -247,7 +247,7 @@ block content
                     li #{d.note}
       -if(interactions.lowinc.length > 0)
         .bs-callout.bs-callout-lowinc
-          h3 Low risk & Increased Effects
+          h3 Low risk &amp; Increased Effects
           ul
             each d in interactions.lowinc
               li
@@ -263,7 +263,7 @@ block content
                     li #{d.note}
       -if(interactions.lowdec.length > 0)
         .bs-callout.bs-callout-lowdec
-          h3 Low risk & Decreased Effects
+          h3 Low risk &amp; Decreased Effects
           ul
             each d in interactions.lowdec
               li
@@ -279,7 +279,7 @@ block content
                     li #{d.note}
       -if(interactions.lowno.length > 0)
         .bs-callout.bs-callout-default
-          h3 Low risk & No Synergy
+          h3 Low risk &amp; No Synergy
           ul
             each d in interactions.lowno
               li
@@ -298,7 +298,7 @@ block content
       p No interaction information for #{drug.pretty_name}
 
     -if(drug.sources)
-      h2.sub-header#references References & Notes
+      h2.sub-header#references References &amp; Notes
       each p,i in drug.sources
         - i = i.replace('_', '');
         - i = i.charAt(0).toUpperCase() + i.slice(1)
