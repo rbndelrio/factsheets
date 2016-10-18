@@ -253,6 +253,12 @@ router.get('/:name', function(req, res) {
     safetyKey = 'amphetamines';
   }
 
+  // TODO: Find out why combos is undefined when requesting a stimulant
+  if (typeof combos == 'undefined') {
+    combos = {};
+    combos[safetyKey] = [];
+  }
+
   if(safetyKey) {
     safety = {
       'dangerous': [],
