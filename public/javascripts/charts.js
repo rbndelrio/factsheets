@@ -1,7 +1,4 @@
 window.onload = function () {
-  $('[data-toggle="tooltip"]').tooltip();
-  $('.fixed-table-loading').hide();
-
   if (typeof drug === 'object') {
 
   if(drug.formatted_dose) {
@@ -241,6 +238,10 @@ window.onload = function () {
 
 
   $(function() {
+
+    $('[data-toggle="tooltip"]').tooltip();
+    $('.fixed-table-loading').hide();
+
     var $sidebar = $('.sidebar');
     var bt = ($sidebar.length)? $sidebar.position().top: false;
 
@@ -248,10 +249,12 @@ window.onload = function () {
         var wst = $(window).scrollTop();
 
         if ($sidebar.length) {
+
           if (wst >= bt) {
-            $sidebar.css({position: 'fixed', top: 15+'px' });
+            $sidebar.css({position: 'fixed', top: '0px' });
           } else {
-            $sidebar.css({position: 'absolute', top: bt+'px' });
+            $sidebar.css({position: 'static'});
+            bt = $sidebar.position().top;
           }
         }
     });
